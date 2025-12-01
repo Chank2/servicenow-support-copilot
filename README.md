@@ -30,7 +30,7 @@ All ServiceNow interactions are **stubbed tools**, making this project easy to r
  }
 
 
-## Structure
+### Structure
 ```text
 src/
  main.py                     # Entry point (skeleton)
