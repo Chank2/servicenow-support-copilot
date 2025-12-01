@@ -24,6 +24,58 @@ Produces structured evaluation output:
 {
  "verdict": "pass/fail",
  "score": 0-10,
- "issues": [...],
- "suggestions": [...]
+ "issues": [],
+ "suggestions": []
 }
+```
+---
+## 📁 Project Structure
+```text
+servicenow-support-copilot/
+├── README.md
+├── requirements.txt
+└── src/
+   ├── main.py                     # Worker Agent CLI entry point
+   ├── tools/
+   │   ├── servicenow_kb.py        # KB search tool (stub)
+   │   ├── servicenow_incidents.py # Incident search & creation (stub)
+   │   └── performance_log.py      # Performance complaint logging tool (stub)
+   └── evaluation/
+       └── critic_agent.py         # Critic Agent (Agent-as-a-Judge)
+```
+---
+## 🔁 Worker Agent → Critic Agent Sequence Diagram
+```text
+User          Worker Agent          Tools                     Critic Agent
+│                 │                  │                             │
+│  describe issue │                  │                             │
+├────────────────>│                  │                             │
+│                 │  search KB       │                             │
+│                 ├─────────────────>│                             │
+│                 │  KB results      │                             │
+│                 ◄──────────────────┤                             │
+│                 │ ask user         │                             │
+│                 │                  │                             │
+│  user chooses to create incident   │                             │
+├────────────────────────────────────>│                             │
+│                 │ create incident  │                             │
+│                 ├─────────────────> IncidentTool                 │
+│                 │  stub incident   │                             │
+│                 ◄──────────────────┤                             │
+│                 │ send payload     │                             │
+│                 ├───────────────────────────────────────────────>│
+│                 │                  │          evaluate            │
+│                 │                  │<─────────────────────────────┤
+│                 │      evaluation results                         │
+│<────────────────┤
+```
+---
+## 🧪 How to Run
+Inside the project root:
+```bash
+pip install -r requirements.txt
+python -m src.main
+Example prompt:
+==== ServiceNow Support Co-Pilot (CLI Demo) ====
+Describe your issue with ServiceNow:
+>
