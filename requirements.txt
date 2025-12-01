@@ -1,0 +1,6 @@
+# Core dependencies for ServiceNow Support Co-Pilot sample
+python-dotenv>=1.0.0
+# If you use Google AI / Vertex AI / ADK later, you can add e.g.:
+# google-generativeai
+# google-cloud-aiplatform
+# google-adk
