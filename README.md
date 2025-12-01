@@ -29,6 +29,7 @@ All ServiceNow interactions are **stubbed tools**, making this project easy to r
    "suggestions": [...]
  }
 
+
 ## Structure
 ```text
 src/
@@ -39,6 +40,7 @@ src/
    performance_log.py        # Performance complaint logging tool (stub)
 evalution/
    critic_agent.py
+
 
 User          Worker Agent          Tools                   Critic Agent
 │                 │                  │                           │
